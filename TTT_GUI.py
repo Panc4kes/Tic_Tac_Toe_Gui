@@ -65,14 +65,7 @@ def update():
              position[2] + position[5] + position[8],
              position[0] + position[4] + position[8],
              position[2] + position[4] + position[6]]
-    combo = [position[0]+position[1]+position[2],
-             position[3]+position[4]+position[5],
-             position[6]+position[7]+position[8],
-             position[0]+position[3]+position[6],
-             position[1]+position[4]+position[7],
-             position[2]+position[5]+position[8],
-             position[0]+position[4]+position[8],
-             position[2]+position[4]+position[6]]
+
 
     if "XXX" in combo:
         showinfo("Result", "Player 1 Won!")
