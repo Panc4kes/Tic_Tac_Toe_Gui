@@ -3,7 +3,6 @@ import platform
 from tkinter import *
 from tkinter.messagebox import showinfo
 
-
 def clear():
     if platform.system() == "Windows":
         os.system("cls")
@@ -58,6 +57,14 @@ def update():
     B8.config(text=position[7])
     B9.config(text=position[8])
 
+    combo = [position[0] + position[1] + position[2],
+             position[3] + position[4] + position[5],
+             position[6] + position[7] + position[8],
+             position[0] + position[3] + position[6],
+             position[1] + position[4] + position[7],
+             position[2] + position[5] + position[8],
+             position[0] + position[4] + position[8],
+             position[2] + position[4] + position[6]]
     combo = [position[0]+position[1]+position[2],
              position[3]+position[4]+position[5],
              position[6]+position[7]+position[8],
@@ -66,6 +73,7 @@ def update():
              position[2]+position[5]+position[8],
              position[0]+position[4]+position[8],
              position[2]+position[4]+position[6]]
+
     if "XXX" in combo:
         showinfo("Result", "Player 1 Won!")
         root.destroy()
@@ -100,31 +108,34 @@ def resolve(pos):
 def board():
     global B1, B2, B3, B4, B5, B6, B7, B8, B9, root
     root = Tk()
-    B1 = Button(root, text=position[0], width=8, height=4, command=lambda: resolve(0))
+
+    root.iconbitmap("icon.ico")
+    root.title("Tik Tok Toe")
+
+    B1 = Button(root, text=position[0], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(0), )
     B1.grid(row=1, column=0)
-    B2 = Button(root, text=position[1], width=8, height=4, command=lambda: resolve(1))
+    B2 = Button(root, text=position[1], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(1))
     B2.grid(row=1, column=1)
-    B3 = Button(root, text=position[2], width=8, height=4, command=lambda: resolve(2))
+    B3 = Button(root, text=position[2], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(2))
     B3.grid(row=1, column=2)
-    B4 = Button(root, text=position[3], width=8, height=4, command=lambda: resolve(3))
+    B4 = Button(root, text=position[3], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(3))
     B4.grid(row=2, column=0)
-    B5 = Button(root, text=position[4], width=8, height=4, command=lambda: resolve(4))
+    B5 = Button(root, text=position[4], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(4))
     B5.grid(row=2, column=1)
-    B6 = Button(root, text=position[5], width=8, height=4, command=lambda: resolve(5))
+    B6 = Button(root, text=position[5], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(5))
     B6.grid(row=2, column=2)
-    B7 = Button(root, text=position[6], width=8, height=4, command=lambda: resolve(6))
+    B7 = Button(root, text=position[6], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(6))
     B7.grid(row=3, column=0)
-    B8 = Button(root, text=position[7], width=8, height=4, command=lambda: resolve(7))
+    B8 = Button(root, text=position[7], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(7))
     B8.grid(row=3, column=1)
-    B9 = Button(root, text=position[8], width=8, height=4, command=lambda: resolve(8))
-    B9.grid(row=3, column=2)
+    B9 = Button(root, text=position[8], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(8))
     root.mainloop()
 
 
 def ask():
     global position
     while True:
-        print("\nplay again? (Y/N)")
+        print("Play again? (Y/N)")
         inp = input("> ")
         if inp.lower() == "n":
             raise SystemExit
