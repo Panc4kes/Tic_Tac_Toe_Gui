@@ -105,7 +105,7 @@ def board():
     root.iconbitmap("icon.ico")
     root.title("Tik Tok Toe")
 
-    B1 = Button(root, text=position[0], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(0), )
+    B1 = Button(root, text=position[0], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(0))
     B1.grid(row=1, column=0)
     B2 = Button(root, text=position[1], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(1))
     B2.grid(row=1, column=1)
@@ -122,7 +122,9 @@ def board():
     B8 = Button(root, text=position[7], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(7))
     B8.grid(row=3, column=1)
     B9 = Button(root, text=position[8], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(8))
+    B9.grid(row=3, column=2)
     root.mainloop()
+    
 
 
 def ask():
