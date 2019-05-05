@@ -101,9 +101,7 @@ def resolve(pos):
 def board():
     global B1, B2, B3, B4, B5, B6, B7, B8, B9, root
     root = Tk()
-
-    root.iconbitmap("icon.ico")
-    root.title("Tik Tok Toe")
+    root.title("Tic Tac Toe")
 
     B1 = Button(root, text=position[0], width=6, height=3, font=("Helvetica", 25, "bold"), command=lambda: resolve(0))
     B1.grid(row=1, column=0)
